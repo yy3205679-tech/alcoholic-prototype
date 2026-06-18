@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 492" role="img" aria-label="neo skeuomorphic bottle">
+  <defs>
+    <filter id="softDrop" x="-28%" y="-18%" width="156%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#1b0f0b" flood-opacity=".34"/>
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#724021" flood-opacity=".18"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="32" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 0.93 0 0 0 0 0.82 0 0 0 .09 0" result="softNoise"/>
+      <feBlend in="SourceGraphic" in2="softNoise" mode="soft-light"/>
+    </filter>
+    <linearGradient id="glassBody" x1="32" x2="199" y1="44" y2="462" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff2df" stop-opacity=".88"/>
+      <stop offset=".14" stop-color="#a3684f" stop-opacity=".62"/>
+      <stop offset=".36" stop-color="#6f3c2b" stop-opacity=".82"/>
+      <stop offset=".58" stop-color="#cf8950" stop-opacity=".86"/>
+      <stop offset=".76" stop-color="#f7c06d" stop-opacity=".76"/>
+      <stop offset="1" stop-color="#4d2a22" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="innerDepth" x1="48" x2="178" y1="65" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity=".68"/>
+      <stop offset=".23" stop-color="#fff1d8" stop-opacity=".1"/>
+      <stop offset=".62" stop-color="#20100d" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#080706" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="72" x2="156" y1="8" y2="146" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff4df"/>
+      <stop offset=".36" stop-color="#d8b894"/>
+      <stop offset=".72" stop-color="#8d5a43"/>
+      <stop offset="1" stop-color="#4f2d24"/>
+    </linearGradient>
+    <radialGradient id="warmGlow" cx="38%" cy="28%" r="58%">
+      <stop stop-color="#fff7d9" stop-opacity=".78"/>
+      <stop offset=".4" stop-color="#f8b451" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#4b2217" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="label" x1="55" x2="171" y1="270" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#ddd1bd"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#softDrop)">
+    <path d="M82 11c0-6 5-11 11-11h40c6 0 11 5 11 11v130c0 11 6 20 16 25 31 17 50 49 50 86v151c0 56-33 89-88 89H104c-55 0-88-33-88-89V252c0-37 19-69 50-86 10-5 16-14 16-25V11Z" fill="#fff4e4" opacity=".96"/>
+    <g filter="url(#grain)">
+      <path d="M92 13h42c6 0 10 4 10 10v121c0 13 8 25 20 31 27 16 43 45 43 78v148c0 51-31 81-82 81h-24c-51 0-82-30-82-81V253c0-33 16-62 43-78 12-6 20-18 20-31V23c0-6 4-10 10-10Z" fill="url(#glassBody)"/>
+      <path d="M92 13h42c6 0 10 4 10 10v121c0 13 8 25 20 31 27 16 43 45 43 78v148c0 51-31 81-82 81h-24c-51 0-82-30-82-81V253c0-33 16-62 43-78 12-6 20-18 20-31V23c0-6 4-10 10-10Z" fill="url(#warmGlow)"/>
+      <path d="M92 13h42c6 0 10 4 10 10v121c0 13 8 25 20 31 27 16 43 45 43 78v148c0 51-31 81-82 81h-24c-51 0-82-30-82-81V253c0-33 16-62 43-78 12-6 20-18 20-31V23c0-6 4-10 10-10Z" fill="url(#innerDepth)"/>
+      <path d="M92 13h42c6 0 10 4 10 10v121c0 13 8 25 20 31 27 16 43 45 43 78v148c0 51-31 81-82 81h-24c-51 0-82-30-82-81V253c0-33 16-62 43-78 12-6 20-18 20-31V23c0-6 4-10 10-10Z" fill="none" stroke="#fff8ee" stroke-opacity=".58" stroke-width="2"/>
+      <path d="M97 8h32c9 0 15 7 15 15v126H82V23C82 15 88 8 97 8Z" fill="url(#neck)"/>
+      <path d="M93 24h17c-7 82-8 192-5 335 1 42-1 72-6 92-28-5-47-25-47-58V254c0-26 12-47 33-61 10-7 15-18 15-30V26c0-1-2-2-7-2Z" fill="#fff" opacity=".3"/>
+      <path d="M142 174c25 22 36 55 36 100v124c0 34-16 53-48 59 16-53 18-191 12-283Z" fill="#160b0a" opacity=".22"/>
+      <rect x="58" y="268" width="110" height="76" rx="18" fill="url(#label)" opacity=".92"/>
+      <rect x="67" y="288" width="83" height="5" rx="2.5" fill="#7d5441" opacity=".7"/>
+      <rect x="78" y="306" width="61" height="5" rx="2.5" fill="#7d5441" opacity=".5"/>
+      <rect x="87" y="323" width="42" height="5" rx="2.5" fill="#7d5441" opacity=".36"/>
+      <circle cx="79" cy="64" r="10" fill="#fff7e7" opacity=".76"/>
+      <path d="M65 185c-22 23-34 51-34 84v123" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".26"/>
+      <path d="M163 31c9 47 12 91 9 132" fill="none" stroke="#2b1512" stroke-width="8" stroke-linecap="round" opacity=".12"/>
+    </g>
+  </g>
+</svg>

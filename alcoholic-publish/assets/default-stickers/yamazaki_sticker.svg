@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Yamazaki whiskey sticker">
+  <defs>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#15110d" flood-opacity=".24"/>
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#15110d" flood-opacity=".13"/>
+    </filter>
+    <filter id="frost">
+      <feTurbulence type="fractalNoise" baseFrequency=".95" numOctaves="2" seed="18" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .18 0" result="grain"/>
+      <feBlend in="SourceGraphic" in2="grain" mode="screen"/>
+    </filter>
+    <linearGradient id="amber" x1="34" x2="158" y1="56" y2="182" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24130a"/>
+      <stop offset=".24" stop-color="#7d421b"/>
+      <stop offset=".5" stop-color="#f2a634"/>
+      <stop offset=".64" stop-color="#fff0ad"/>
+      <stop offset=".82" stop-color="#98511f"/>
+      <stop offset="1" stop-color="#130905"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="79" x2="139" y1="31" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff7d8" stop-opacity=".88"/>
+      <stop offset=".3" stop-color="#fff5c7" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".32"/>
+    </linearGradient>
+  </defs>
+  <g filter="url(#softShadow)">
+    <path fill="#fff" d="M98 9c15 0 26 9 26 24v19c15 6 24 19 24 38v75c0 28-15 45-39 45H91c-24 0-39-17-39-45V90c0-19 9-32 24-38V33c0-15 8-24 22-24z"/>
+    <g filter="url(#frost)">
+      <path fill="#d8c8b1" d="M85 23c0-8 5-13 13-13h10c8 0 13 5 13 13v33H85V23z"/>
+      <path fill="url(#amber)" d="M75 58h56c13 7 20 17 20 34v74c0 21-13 34-33 34H88c-20 0-33-13-33-34V92c0-17 7-27 20-34z"/>
+      <path fill="url(#glass)" opacity=".86" d="M89 58h20c9 14 12 40 12 70 0 31-4 58-14 72H88c8-24 10-111 1-142z"/>
+      <rect x="72" y="102" width="62" height="44" rx="6" fill="#f8f0dd"/>
+      <path fill="#1d1712" d="M84 112h38v4H84zm5 11h28v4H89zm2 10h24v4H91z" opacity=".85"/>
+      <text x="103" y="131" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="800" fill="#24170d">12</text>
+      <path fill="#fff" d="M95 62c-4 16-5 41-4 76" opacity=".44"/>
+      <circle cx="83" cy="70" r="5" fill="#fff" opacity=".55"/>
+    </g>
+  </g>
+</svg>

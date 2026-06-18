@@ -1,0 +1,1 @@
+window.ALCOHOLIC_CUTOUT_ENDPOINT = "";

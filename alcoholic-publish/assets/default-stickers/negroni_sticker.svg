@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Negroni cocktail sticker">
+  <defs>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#17080a" flood-opacity=".24"/>
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#17080a" flood-opacity=".13"/>
+    </filter>
+    <filter id="frost">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="24" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .17 0" result="grain"/>
+      <feBlend in="SourceGraphic" in2="grain" mode="screen"/>
+    </filter>
+    <linearGradient id="drink" x1="73" x2="147" y1="96" y2="165" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5b151a"/>
+      <stop offset=".44" stop-color="#bc2636"/>
+      <stop offset=".72" stop-color="#ff7b54"/>
+      <stop offset="1" stop-color="#441013"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="62" x2="154" y1="72" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity=".86"/>
+      <stop offset=".42" stop-color="#ffffff" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <g filter="url(#softShadow)">
+    <path fill="#fff" d="M68 42c33-19 81-11 105 18 22 27 18 70-8 95-21 20-35 35-44 52H92c-8-18-25-34-44-56-26-31-13-89 20-109z"/>
+    <g filter="url(#frost)">
+      <ellipse cx="112" cy="78" rx="61" ry="28" fill="#1b1516"/>
+      <path fill="url(#drink)" d="M54 82c18 38 36 72 58 72s40-34 58-72c-13 16-104 16-116 0z"/>
+      <ellipse cx="112" cy="82" rx="57" ry="24" fill="#aa2331"/>
+      <ellipse cx="113" cy="78" rx="49" ry="18" fill="url(#rim)"/>
+      <path d="M80 91c22 10 45 10 66 0" fill="none" stroke="#ffb277" stroke-width="8" stroke-linecap="round" opacity=".58"/>
+      <path d="M99 153h27v39c10 2 18 5 24 11H75c6-6 14-9 24-11v-39z" fill="#f7f1e7" opacity=".82"/>
+      <path d="M151 47c16 2 26 10 29 22-19 0-33-6-42-19 5-3 9-4 13-3z" fill="#f08927"/>
+      <path d="M82 61c24 8 51 8 78 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".42"/>
+      <circle cx="88" cy="89" r="5" fill="#fff" opacity=".5"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>alcoholic prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./config.js"></script>
+  </head>
+  <body>
+    <svg class="svg-filters" aria-hidden="true" focusable="false">
+      <filter id="printInk" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale=".38"></feDisplacementMap>
+      </filter>
+      <filter id="stampInk" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="3" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.1"></feDisplacementMap>
+        <feGaussianBlur stdDeviation=".12"></feGaussianBlur>
+      </filter>
+      <filter id="grungeTitleInk" x="-8%" y="-18%" width="116%" height="136%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.35" numOctaves="3" seed="9" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.28" result="rough"></feDisplacementMap>
+        <feGaussianBlur in="rough" stdDeviation=".1"></feGaussianBlur>
+      </filter>
+    </svg>
+    <main class="stage" aria-label="alcoholic mobile prototype">
+      <section class="phone" aria-label="iOS preview frame">
+        <div class="hardware-button hardware-button-left"></div>
+        <div class="hardware-button hardware-button-right"></div>
+        <div class="screen">
+          <div class="dynamic-island"></div>
+          <header class="status-bar" aria-label="status bar">
+            <span>9:41</span>
+            <div class="status-icons" aria-hidden="true">
+              <svg viewBox="0 0 24 12" class="signal">
+                <rect x="2" y="7" width="3" height="3" rx="1"></rect>
+                <rect x="7" y="5" width="3" height="5" rx="1"></rect>
+                <rect x="12" y="3" width="3" height="7" rx="1"></rect>
+                <rect x="17" y="1" width="3" height="9" rx="1"></rect>
+              </svg>
+              <svg viewBox="0 0 18 12" class="wifi">
+                <path d="M2 4.8C6.1 1.6 11.9 1.6 16 4.8"></path>
+                <path d="M5 7.5C7.3 5.8 10.7 5.8 13 7.5"></path>
+                <path d="M8.2 9.8C8.7 9.4 9.3 9.4 9.8 9.8"></path>
+              </svg>
+              <svg viewBox="0 0 28 14" class="battery">
+                <rect x="1" y="2" width="22" height="10" rx="3"></rect>
+                <rect x="24" y="5" width="3" height="4" rx="1"></rect>
+                <rect x="3.4" y="4.2" width="16" height="5.6" rx="2"></rect>
+              </svg>
+            </div>
+          </header>
+
+          <div class="app-shell">
+            <section class="view active" data-view="cabinet" aria-label="酒柜">
+              <div class="cabinet-header">
+                <h1 class="brand-title" data-text="alcoholic">alcoholic</h1>
+                <div class="monthly-flower" aria-label="每月养花">
+                  <button class="flower-visual" data-action="open-growth-path" type="button" aria-label="查看成长路径">
+                    <img
+                      data-flower-stage-img
+                      src="./assets/cyber-bottle-plant/stage-01-seedling.svg"
+                      alt="本月花朵阶段"
+                    />
+                  </button>
+                  <div class="flower-panel">
+                    <div class="flower-copy">
+                      <span data-flower-month>本月养花</span>
+                      <strong data-flower-stage>种子</strong>
+                    </div>
+                    <div class="flower-water">
+                      <span class="drop-count"><b data-flower-drops>0</b></span>
+                      <small>每 3 度 = 1 滴</small>
+                    </div>
+                    <div class="flower-meter" aria-hidden="true">
+                      <i data-flower-progress></i>
+                    </div>
+                    <div class="flower-footer">
+                      <p data-flower-next>距离花苞还差 50 滴</p>
+                      <button class="water-flower-button" data-action="water-flower" type="button">
+                        <span class="water-icon" aria-hidden="true"></span>
+                        <span data-flower-pending>浇水</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="drink-list" aria-label="酒单列表">
+                <article class="receipt-card receipt-small flip-card" data-drink-card data-rating-rank="4">
+                  <div class="flip-inner small-flip">
+                    <button class="drink-face receipt-face receipt-small-front" data-action="flip" aria-label="查看 山崎 12 详情">
+                      <div>
+                        <h2 class="field-line field-name">山崎 12</h2>
+                        <p class="field-line field-bar">Tokyo Listening Bar</p>
+                        <p class="field-line field-meta">东京 · 43% ABV</p>
+                        <p class="field-line field-drops">14 水滴</p>
+                        <p class="field-line field-tags"><span>杏桃 香草 轻橡木</span></p>
+                      </div>
+                      <div class="photo-sticker generated-cabinet-sticker default-sticker" data-sticker-tech="image-to-sticker" aria-hidden="true">
+                        <span class="cabinet-generated-photo has-saved-image default-yamazaki"></span>
+                      </div>
+                      <div class="stamp stamp-sss">SSS</div>
+                    </button>
+                    <div class="drink-face receipt-face receipt-small-back">
+                      <button class="close-detail" data-action="flip">×</button>
+                      <button class="edit-line" data-edit="rating"><span>评分</span><strong>SSS</strong></button>
+                      <button class="edit-line" data-edit="name"><span>名称</span><strong>山崎 12</strong></button>
+                      <button class="edit-line" data-edit="bar"><span>酒馆 / 城市</span><strong>Tokyo Listening Bar · 东京</strong></button>
+                      <button class="edit-line" data-edit="abv"><span>度数</span><strong>43%</strong></button>
+                      <button class="edit-line" data-edit="note"><span>评语</span><strong>杏桃、香草、轻橡木，收尾干净。</strong></button>
+                      <div class="receipt-actions compact-actions">
+                        <button class="delete-icon delete-receipt" data-action="request-delete" aria-label="删除 山崎 12">
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                          </svg>
+                        </button>
+                        <button class="save-image" data-action="save-image">下载小票</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="delete-icon delete-chip" data-action="request-delete" aria-label="删除 山崎 12">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                    </svg>
+                  </button>
+                </article>
+
+                <article class="receipt-card receipt-small flip-card" data-drink-card>
+                  <div class="flip-inner small-flip">
+                    <button class="drink-face receipt-face receipt-small-front" data-action="flip" aria-label="查看 Negroni 详情">
+                      <div>
+                        <h2 class="field-line field-name">Negroni</h2>
+                        <p class="field-line field-bar">Bar Rouge</p>
+                        <p class="field-line field-meta">上海 · 24% ABV</p>
+                        <p class="field-line field-drops">8 水滴</p>
+                        <p class="field-line field-tags"><span>苦橙 金巴利 夜景</span></p>
+                      </div>
+                      <div class="photo-sticker generated-cabinet-sticker default-sticker" data-sticker-tech="image-to-sticker" aria-hidden="true">
+                        <span class="cabinet-generated-photo has-saved-image default-negroni"></span>
+                      </div>
+                      <div class="stamp stamp-b">B</div>
+                    </button>
+                    <div class="drink-face receipt-face receipt-small-back">
+                      <button class="close-detail" data-action="flip">×</button>
+                      <button class="edit-line" data-edit="rating"><span>评分</span><strong>B</strong></button>
+                      <button class="edit-line" data-edit="name"><span>名称</span><strong>Negroni</strong></button>
+                      <button class="edit-line" data-edit="bar"><span>酒馆 / 城市</span><strong>Bar Rouge · 上海</strong></button>
+                      <button class="edit-line" data-edit="abv"><span>度数</span><strong>24%</strong></button>
+                      <button class="edit-line" data-edit="note"><span>评语</span><strong>苦橙、金巴利和红色夜景。</strong></button>
+                      <div class="receipt-actions compact-actions">
+                        <button class="delete-icon delete-receipt" data-action="request-delete" aria-label="删除 Negroni">
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                          </svg>
+                        </button>
+                        <button class="save-image" data-action="save-image">下载小票</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="delete-icon delete-chip" data-action="request-delete" aria-label="删除 Negroni">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                    </svg>
+                  </button>
+                </article>
+
+                <article class="receipt-card receipt-small flip-card" data-drink-card>
+                  <div class="flip-inner small-flip">
+                    <button class="drink-face receipt-face receipt-small-front" data-action="flip" aria-label="查看 獭祭 45 详情">
+                      <div>
+                        <h2 class="field-line field-name">獭祭 45</h2>
+                        <p class="field-line field-bar">Sake House</p>
+                        <p class="field-line field-meta">京都 · 16% ABV</p>
+                        <p class="field-line field-drops">5 水滴</p>
+                        <p class="field-line field-tags"><span>米香清亮 冷泉</span></p>
+                      </div>
+                      <div class="photo-sticker generated-cabinet-sticker default-sticker" data-sticker-tech="image-to-sticker" aria-hidden="true">
+                        <span class="cabinet-generated-photo has-saved-image default-dassai"></span>
+                      </div>
+                      <div class="stamp stamp-s">S</div>
+                    </button>
+                    <div class="drink-face receipt-face receipt-small-back">
+                      <button class="close-detail" data-action="flip">×</button>
+                      <button class="edit-line" data-edit="rating"><span>评分</span><strong>S</strong></button>
+                      <button class="edit-line" data-edit="name"><span>名称</span><strong>獭祭 45</strong></button>
+                      <button class="edit-line" data-edit="bar"><span>酒馆 / 城市</span><strong>Sake House · 京都</strong></button>
+                      <button class="edit-line" data-edit="abv"><span>度数</span><strong>16%</strong></button>
+                      <button class="edit-line" data-edit="note"><span>评语</span><strong>米香清亮，收尾像冷泉。</strong></button>
+                      <div class="receipt-actions compact-actions">
+                        <button class="delete-icon delete-receipt" data-action="request-delete" aria-label="删除 獭祭 45">
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                          </svg>
+                        </button>
+                        <button class="save-image" data-action="save-image">下载小票</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="delete-icon delete-chip" data-action="request-delete" aria-label="删除 獭祭 45">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                    </svg>
+                  </button>
+                </article>
+
+                <article class="receipt-card receipt-small flip-card" data-drink-card>
+                  <div class="flip-inner small-flip">
+                    <button class="drink-face receipt-face receipt-small-front" data-action="flip" aria-label="查看 Old Fashioned 详情">
+                      <div>
+                        <h2 class="field-line field-name">Old Fashioned</h2>
+                        <p class="field-line field-bar">Smoke Room</p>
+                        <p class="field-line field-meta">纽约 · 32% ABV</p>
+                        <p class="field-line field-drops">10 水滴</p>
+                        <p class="field-line field-tags"><span>橙皮油 焦糖 烟熏</span></p>
+                      </div>
+                      <div class="photo-sticker generated-cabinet-sticker default-sticker" data-sticker-tech="image-to-sticker" aria-hidden="true">
+                        <span class="cabinet-generated-photo has-saved-image default-old-fashioned"></span>
+                      </div>
+                      <div class="stamp stamp-a">A</div>
+                    </button>
+                    <div class="drink-face receipt-face receipt-small-back">
+                      <button class="close-detail" data-action="flip">×</button>
+                      <button class="edit-line" data-edit="rating"><span>评分</span><strong>A</strong></button>
+                      <button class="edit-line" data-edit="name"><span>名称</span><strong>Old Fashioned</strong></button>
+                      <button class="edit-line" data-edit="bar"><span>酒馆 / 城市</span><strong>Smoke Room · 纽约</strong></button>
+                      <button class="edit-line" data-edit="abv"><span>度数</span><strong>32%</strong></button>
+                      <button class="edit-line" data-edit="note"><span>评语</span><strong>橙皮油、焦糖和烟熏木头。</strong></button>
+                      <div class="receipt-actions compact-actions">
+                        <button class="delete-icon delete-receipt" data-action="request-delete" aria-label="删除 Old Fashioned">
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                          </svg>
+                        </button>
+                        <button class="save-image" data-action="save-image">下载小票</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="delete-icon delete-chip" data-action="request-delete" aria-label="删除 Old Fashioned">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 13h8l1-13"></path><path d="M10 11v5"></path><path d="M14 11v5"></path>
+                    </svg>
+                  </button>
+                </article>
+              </div>
+            </section>
+
+            <section class="view" data-view="pour" aria-label="倒酒">
+              <div class="topbar compact">
+                <div>
+                  <p class="eyebrow">倒酒</p>
+                  <h1>把照片倒进酒瓶</h1>
+                </div>
+              </div>
+
+              <div class="pour-stage" data-pour-stage>
+                <div class="bottle-shell">
+                  <img class="pour-neo-bottle" src="./assets/neo-bottle.svg" alt="" aria-hidden="true" />
+                  <div class="bottle-neck" aria-hidden="true"></div>
+                  <div class="camera-view">
+                    <div class="camera-grid"></div>
+                    <div class="scan-line"></div>
+                    <div class="subject-bottle"></div>
+                  </div>
+                  <div class="liquid-fill"></div>
+                  <div class="liquid-bubbles" aria-hidden="true">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="cutout-loading" aria-hidden="true">
+                    <i></i>
+                    <span>生成贴纸中</span>
+                  </div>
+                  <div class="sticker-result">
+                    <div class="sticker-bottle" data-generated-sticker></div>
+                  </div>
+                </div>
+                <p class="pour-hint" data-pour-hint>点击「开酒」拍照，或从本地上传图片</p>
+              </div>
+
+              <div class="pour-actions">
+                <button class="secondary-action action-with-icon" data-action="open-camera">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 8h10l1 3v7H6v-7l1-3Z"></path>
+                    <path d="M9 8V5h6v3"></path>
+                    <path d="M10 13h4"></path>
+                  </svg>
+                  <span>开酒</span>
+                </button>
+                <input class="capture-input" type="file" accept="image/*" capture="environment" data-capture-image />
+                <label class="upload-action action-with-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 16V5"></path>
+                    <path d="M8 9l4-4 4 4"></path>
+                    <path d="M5 15v4h14v-4"></path>
+                  </svg>
+                  <span>本地上传</span>
+                  <input type="file" accept="image/*" data-upload-image />
+                </label>
+                <button class="primary-action action-with-icon" data-action="pour-shot">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 4h6l2 4-5 11H7l5-11H8V4Z"></path>
+                    <path d="M16 14c2 1 3 2.2 3 4"></path>
+                  </svg>
+                  <span>倒酒</span>
+                </button>
+              </div>
+            </section>
+
+            <section class="view" data-view="edit" aria-label="打印酒单">
+              <div class="nav-row">
+                <button class="icon-button" data-target="pour" aria-label="返回">‹</button>
+                <p>打印酒单</p>
+                <button class="text-button" data-action="save-drink">入柜</button>
+              </div>
+
+              <div class="sticker-card">
+                <div class="sticker-bottle large" data-edit-sticker></div>
+              </div>
+
+              <form class="edit-panel">
+                <label>
+                  <span>评分</span>
+                  <select id="ratingInput">
+                    <option>SSS</option>
+                    <option>S</option>
+                    <option>A</option>
+                    <option>B</option>
+                  </select>
+                </label>
+                <label>
+                  <span>名称</span>
+                  <input id="nameInput" value="山崎 12" />
+                </label>
+                <label>
+                  <span>酒馆</span>
+                  <input id="barInput" value="Tokyo Listening Bar" />
+                </label>
+                <label>
+                  <span>度数</span>
+                  <input id="abvInput" value="43%" />
+                </label>
+                <label class="full">
+                  <span>评语</span>
+                  <input id="noteInput" type="hidden" value="这杯有故事" />
+                  <div class="note-tag-editor" data-note-editor>
+                    <div class="note-tags" data-note-tags>
+                      <button type="button" data-note-tag="下次还喝"><span class="note-emoji">🥂</span><span>下次还喝</span></button>
+                      <button type="button" data-note-tag="仅限一杯"><span class="note-emoji">☝️</span><span>仅限一杯</span></button>
+                      <button type="button" data-note-tag="后劲很阴"><span class="note-emoji">🌀</span><span>后劲很阴</span></button>
+                      <button type="button" data-note-tag="拍照比喝好"><span class="note-emoji">📸</span><span>拍照比喝好</span></button>
+                      <button type="button" data-note-tag="朋友局专用"><span class="note-emoji">🫂</span><span>朋友局专用</span></button>
+                      <button type="button" data-note-tag="失恋慎点"><span class="note-emoji">💔</span><span>失恋慎点</span></button>
+                      <button type="button" data-note-tag="适合装懂"><span class="note-emoji">🧐</span><span>适合装懂</span></button>
+                      <button type="button" data-note-tag="有点危险"><span class="note-emoji">⚠️</span><span>有点危险</span></button>
+                      <button type="button" data-note-tag="酒吧不错"><span class="note-emoji">🍸</span><span>酒吧不错</span></button>
+                      <button type="button" data-note-tag="这杯有故事" class="active"><span class="note-emoji">📖</span><span>这杯有故事</span></button>
+                    </div>
+                    <div class="note-custom-row">
+                      <input id="noteCustomInput" maxlength="6" placeholder="自定义标签" />
+                      <button type="button" data-action="add-note-tag">添加</button>
+                    </div>
+                  </div>
+                </label>
+              </form>
+            </section>
+
+            <section class="view" data-view="me" aria-label="我的">
+              <div class="topbar">
+                <div>
+                  <p class="eyebrow">我的</p>
+                  <h1>个人饮酒档案</h1>
+                </div>
+                <button class="icon-button avatar-button">A</button>
+              </div>
+
+              <div class="profile-card">
+                <div class="avatar-large">A</div>
+                <div>
+                  <h2>alcoholic collector</h2>
+                  <p>偏爱威士忌、自然酒和小酒馆夜晚。</p>
+                </div>
+              </div>
+
+              <div class="stats-grid">
+                <article>
+                  <span>一共喝了</span>
+                  <strong>128 杯</strong>
+                </article>
+                <article>
+                  <span>城市</span>
+                  <strong>12 城</strong>
+                </article>
+                <article>
+                  <span>平均度数</span>
+                  <strong>38%</strong>
+                </article>
+              </div>
+
+              <div class="city-card">
+                <div class="city-map">
+                  <span style="left: 22%; top: 46%"></span>
+                  <span style="left: 48%; top: 30%"></span>
+                  <span style="left: 68%; top: 55%"></span>
+                </div>
+                <div>
+                  <h2>最近城市</h2>
+                  <p>上海、东京、巴黎、京都</p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <nav class="tabbar" aria-label="一级导航">
+            <button class="tab active" data-target="cabinet">
+              <span>▥</span>
+              <small>酒柜</small>
+            </button>
+            <button class="tab" data-target="pour">
+              <span>◉</span>
+              <small>倒酒</small>
+            </button>
+            <button class="tab" data-target="me">
+              <span>◎</span>
+              <small>我的</small>
+            </button>
+          </nav>
+
+          <div class="modal" data-edit-modal aria-hidden="true">
+            <div class="modal-card">
+              <p data-edit-title>编辑</p>
+              <input data-edit-input value="" />
+              <div class="rating-options" data-rating-options hidden>
+                <button type="button" data-rating-option="SSS">SSS</button>
+                <button type="button" data-rating-option="S">S</button>
+                <button type="button" data-rating-option="A">A</button>
+                <button type="button" data-rating-option="B">B</button>
+              </div>
+              <div class="note-tag-editor modal-note-editor" data-modal-note-editor hidden>
+                <div class="note-tags" data-modal-note-tags>
+                  <button type="button" data-note-tag="下次还喝"><span class="note-emoji">🥂</span><span>下次还喝</span></button>
+                  <button type="button" data-note-tag="仅限一杯"><span class="note-emoji">☝️</span><span>仅限一杯</span></button>
+                  <button type="button" data-note-tag="后劲很阴"><span class="note-emoji">🌀</span><span>后劲很阴</span></button>
+                  <button type="button" data-note-tag="拍照比喝好"><span class="note-emoji">📸</span><span>拍照比喝好</span></button>
+                  <button type="button" data-note-tag="朋友局专用"><span class="note-emoji">🫂</span><span>朋友局专用</span></button>
+                  <button type="button" data-note-tag="失恋慎点"><span class="note-emoji">💔</span><span>失恋慎点</span></button>
+                  <button type="button" data-note-tag="适合装懂"><span class="note-emoji">🧐</span><span>适合装懂</span></button>
+                  <button type="button" data-note-tag="有点危险"><span class="note-emoji">⚠️</span><span>有点危险</span></button>
+                  <button type="button" data-note-tag="酒吧不错"><span class="note-emoji">🍸</span><span>酒吧不错</span></button>
+                  <button type="button" data-note-tag="这杯有故事"><span class="note-emoji">📖</span><span>这杯有故事</span></button>
+                </div>
+                <div class="note-custom-row">
+                  <input data-modal-note-custom maxlength="6" placeholder="自定义标签" />
+                  <button type="button" data-action="add-modal-note-tag">添加</button>
+                </div>
+              </div>
+              <div>
+                <button data-action="close-modal">取消</button>
+                <button data-action="confirm-edit">保存</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal confirm-modal" data-delete-modal aria-hidden="true">
+            <div class="modal-card confirm-card">
+              <p>确认删除这张酒单？</p>
+              <span>删除后这张小票会从酒柜中移除。</span>
+              <div>
+                <button data-action="cancel-delete">取消</button>
+                <button data-action="confirm-delete">删除</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal growth-modal" data-growth-modal aria-hidden="true">
+            <div class="modal-card growth-card">
+              <p>成长路径</p>
+              <span class="growth-reset-note">每月 1 号重置进度</span>
+              <div class="growth-path">
+                <article>
+                  <img src="./assets/cyber-bottle-plant/stage-01-seedling.svg" alt="种子" />
+                  <strong>种子</strong>
+                  <span>50 滴</span>
+                </article>
+                <article>
+                  <img src="./assets/cyber-bottle-plant/stage-02-bud.svg" alt="花苞" />
+                  <strong>花苞</strong>
+                  <span>110 滴</span>
+                </article>
+                <article>
+                  <img src="./assets/cyber-bottle-plant/stage-03-bloom.svg" alt="开花" />
+                  <strong>开花</strong>
+                  <span>250 滴</span>
+                </article>
+                <article>
+                  <img src="./assets/cyber-bottle-plant/stage-04-fruit.svg" alt="结果" />
+                  <strong>结果</strong>
+                  <span>500 滴</span>
+                </article>
+              </div>
+              <div>
+                <button data-action="close-growth-path">知道了</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="toast" role="status" aria-live="polite">已保存到本地</div>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

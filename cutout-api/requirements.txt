@@ -1,0 +1,2 @@
+# The public deployment uses remove.bg through Python stdlib urllib.
+# No Python packages are required.

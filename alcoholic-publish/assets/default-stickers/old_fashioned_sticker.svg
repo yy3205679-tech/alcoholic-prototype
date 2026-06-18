@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Old Fashioned cocktail sticker">
+  <defs>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#160e08" flood-opacity=".24"/>
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#160e08" flood-opacity=".13"/>
+    </filter>
+    <filter id="frost">
+      <feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="2" seed="42" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .18 0" result="grain"/>
+      <feBlend in="SourceGraphic" in2="grain" mode="screen"/>
+    </filter>
+    <linearGradient id="bourbon" x1="63" x2="158" y1="91" y2="178" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#32140a"/>
+      <stop offset=".36" stop-color="#a84e20"/>
+      <stop offset=".62" stop-color="#efa747"/>
+      <stop offset="1" stop-color="#4b1d0e"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="63" x2="152" y1="58" y2="193" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity=".82"/>
+      <stop offset=".34" stop-color="#ffffff" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".46"/>
+    </linearGradient>
+  </defs>
+  <g filter="url(#softShadow)">
+    <path fill="#fff" d="M53 52c30-18 86-17 116 1 9 6 13 17 10 28l-25 95c-5 21-18 34-40 34H93c-22 0-35-13-40-34L28 81c-3-12 7-24 25-29z"/>
+    <g filter="url(#frost)">
+      <path fill="#191312" d="M45 62c26-15 91-15 118 0 9 5 10 19 3 24-30 18-96 17-124 0-8-5-6-19 3-24z"/>
+      <path fill="url(#bourbon)" d="M43 84c29 18 93 18 122 0l-23 86c-4 16-13 24-30 24H96c-17 0-26-8-30-24L43 84z"/>
+      <ellipse cx="104" cy="84" rx="61" ry="19" fill="#e18433" opacity=".76"/>
+      <path fill="url(#glass)" d="M61 73c18 14 21 85 31 121H76C62 159 49 99 48 77c3-3 7-4 13-4z"/>
+      <rect x="88" y="95" width="31" height="31" rx="6" fill="#ffe6b6" opacity=".42" transform="rotate(-10 103.5 110.5)"/>
+      <path d="M137 56c13-4 24 0 31 10-17 8-31 6-43-5 4-3 8-4 12-5z" fill="#ee8a25"/>
+      <path d="M71 72c22 10 57 11 84 1" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+      <circle cx="86" cy="83" r="5" fill="#fff" opacity=".48"/>
+    </g>
+  </g>
+</svg>

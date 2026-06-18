@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: alcoholic-cutout-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python cutout-service.py
+    envVars:
+      - key: ALCOHOLIC_CUTOUT_HOST
+        value: 0.0.0.0
+      - key: REMOVE_BG_API_KEY
+        sync: false
